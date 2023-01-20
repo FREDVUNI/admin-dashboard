@@ -23,17 +23,17 @@ const Navbar = ({
                 <FlexBetween>
                     <IconButton onClick={ () => setIsSidebarOpen(!isSidebarOpen) }>
                         <MenuIcon/>
-                        <FlexBetween
-                            backgroundColor={theme.palette.background.alt}
-                            borderRadius="9px"
-                            gap="3rem"
-                            p="0.1rem 1.5rem">
-                                <InputBase placeholder="search ..."/>
-                                <IconButton>
-                                    <Search/>
-                                </IconButton>
-                        </FlexBetween>
                     </IconButton>
+                    <FlexBetween
+                        backgroundColor={theme.palette.background.alt}
+                        borderRadius="9px"
+                        gap="3rem"
+                        p="0.1rem 1.5rem">
+                        <InputBase placeholder="search ..."/>
+                        <IconButton>
+                            <Search/>
+                        </IconButton>
+                    </FlexBetween>
                 </FlexBetween>
                 {/* RIGHT SIDE */}
                 <FlexBetween gap="1.5rem">

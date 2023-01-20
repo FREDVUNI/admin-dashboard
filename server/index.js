@@ -9,6 +9,8 @@ import clientRoutes from  './routers/clients.js'
 import salesRoutes from  './routers/sales.js'
 import managementRoutes from  './routers/management.js'
 import generalRoutes from  './routers/general.js'
+// import User from './models/User.js'
+// import { dataUser } from './data/index.js'
 
 const app = express()
 app.use(morgan('common'))
@@ -23,12 +25,14 @@ dotenv.config({path:".env"})
 const PORT = process.env.PORT || 9000
 
 app.use("/client",clientRoutes)
-app.use("/general",salesRoutes)
+app.use("/general",generalRoutes)
 app.use("/management",managementRoutes)
-app.use("/sales",generalRoutes)
+app.use("/sales",salesRoutes)
 
 connectDB();
 
 app.listen(PORT,()=>{
     console.log(`server started on http://localhost:${PORT}`)
+    //Run this once
+    // User.insertMany(dataUser)
 })
