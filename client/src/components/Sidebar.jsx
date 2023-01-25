@@ -14,7 +14,7 @@ import {
 } from '@mui/material'
 
 import { 
-    SettingsOutlned, 
+    SettingsOutlined, 
     ChevronLeft,
     ChevronRightOutlined,
     HomeOutlined,
@@ -93,6 +93,7 @@ const navItems =[
 ]
 
 const Sidebar = ({
+    user,
     drawerWidth,
     isSidebarOpen,
     setIsSidebarOpen,
@@ -179,11 +180,10 @@ const Sidebar = ({
                                         >
                                             {icon}
                                         </ListItemIcon>
-                                        <ListItemText primary={text}>
+                                        <ListItemText primary={text} />
                                             {active === lcText && (
                                                 <ChevronRightOutlined sx={{ ml:"auto" }}/>
                                             )}
-                                        </ListItemText>
                                     </ListItemButton>
                                 </ListItem>
                             )
@@ -191,9 +191,27 @@ const Sidebar = ({
                     }
                 </List>
             </Box>
-            </Drawer>
-            )
-        }
+            <Box position="relative" bottom="0.5rem">
+                <Divider/>
+                <FlexBetween textTransform="none" gap="1rem" m="1.5rem 2rem 2rem 3rem">
+                    <Box
+                        component="img"
+                        alt="profile"
+                        src={ProfileImage}
+                        height="40px"
+                        width="40px"
+                        borderRadius="50%"
+                        sx={{ objectFit:"cover" }}
+                    />
+                    <Box textAlign="left">
+                        <Typography fontWeight="bold" fontSize="0.9rem" sx={{ color: theme.palette.secondary[100] }}>{user.name}</Typography>
+                        <Typography fontWeight="bold" fontSize="0.8rem" sx={{ color: theme.palette.secondary[200] }}>{user.occupation}</Typography>
+                    </Box>
+                    <SettingsOutlined sx={{ color: theme.palette.secondary[300], fontSize:"25px" }}/>
+                </FlexBetween>
+            </Box>            
+        </Drawer>
+        )}
     </Box>
     )
 }
