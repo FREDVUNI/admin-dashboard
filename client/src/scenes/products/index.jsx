@@ -73,9 +73,9 @@ const Product = ({
 }
 
 const Products = () =>{
-    // const theme = useTheme()
     const { data,isLoading,error } = useGetProductsQuery();
-    const isMobile = useMediaQuery("(min-width:1000px)")
+    const isNonMobile = useMediaQuery("(min-width:1000px)")
+
     return(
         <Box m="1.5rem 2.5rem">
             <Header title='PRODUCTS' subtitle='List of all products'/>
@@ -89,12 +89,11 @@ const Products = () =>{
                         rowGap="20px"
                         columnGap="1.33%"
                         sx = {{ 
-                            "& > div": {gridColumn: isMobile ? undefined:"span 4"}
+                            "& > div": {gridColumn: isNonMobile ? undefined:"span 4"}
                          }}
                     >
                         {data.map(({
                             _id,
-                            index,
                             name,
                             description,
                             price,
@@ -104,7 +103,7 @@ const Products = () =>{
                             stat
                         }) =>(
                             <Product
-                                key={index}
+                                key={_id}
                                 _id={_id}
                                 name={name}
                                 description={description}
@@ -114,8 +113,7 @@ const Products = () =>{
                                 supply={supply}
                                 stat={stat}
                             />
-                        ))
-                        }
+                        ))}
                     </Box>
                 ): error ? (
                     <p>something went wrong</p>

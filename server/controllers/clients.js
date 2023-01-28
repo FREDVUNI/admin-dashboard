@@ -10,7 +10,7 @@ export const getProducts = async(req,res) =>{
                     productId:product._id
                 })
                 return{
-                    ...product.doc,
+                    ...product._doc,
                     stat
                 }
             })
