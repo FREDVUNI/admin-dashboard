@@ -9,8 +9,10 @@ import clientRoutes from  './routers/clients.js'
 import salesRoutes from  './routers/sales.js'
 import managementRoutes from  './routers/management.js'
 import generalRoutes from  './routers/general.js'
+// import Product from './models/Product.js'
+// import ProductStat from './models/ProductStat.js'
 // import User from './models/User.js'
-// import { dataUser } from './data/index.js'
+// import { dataUser,dataProduct,dataProductStat } from './data/index.js'
 
 const app = express()
 app.use(morgan('common'))
@@ -35,4 +37,6 @@ app.listen(PORT,()=>{
     console.log(`server started on http://localhost:${PORT}`)
     //Run this once
     // User.insertMany(dataUser)
+    // Product.insertMany(dataProduct)
+    // ProductStat.insertMany(dataProductStat)
 })
