@@ -7,10 +7,13 @@ import { BrowserRouter as Router,Routes,Route,Navigate } from 'react-router-dom'
 import Layout from 'scenes/layout'
 import Dashboard from 'scenes/dashboard'
 import Products from 'scenes/products'
+import Customers from 'scenes/customers'
 
 function App() {
+
   const mode = useSelector((state) => state.global.mode)
   const theme = useMemo(() => createTheme(themeSettings(mode)),[mode])
+
   return (
     <div className="app">
       <Router>
@@ -21,6 +24,7 @@ function App() {
               <Route path="/" element={<Navigate to="/dashboard"/>} replace/>
               <Route path="/dashboard" element={<Dashboard/>}/>
               <Route path="/products" element={<Products/>}/>
+              <Route path="/customers" element={<Customers/>}/>
             </Route>
           </Routes>
         </ThemeProvider>
