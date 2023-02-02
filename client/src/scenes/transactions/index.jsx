@@ -13,14 +13,15 @@ const Transactions = () =>{
     const [pageSize,setPageSize] = useState(20)
     const [sort,setSort] = useState({})
     const [search,setSearch] = useState("")
+    const [searchInput,setSearchInput] = useState("")
 
     const {data,isLoading} = useGetTransactionsQuery({
         page,
         pageSize,
         sort: JSON.stringify(sort),
-        search
+        search,
     })
-
+    console.log(data)
     const columns = [
         {
             field:"_id",
@@ -54,7 +55,7 @@ const Transactions = () =>{
     ]
 
     return(
-        <>
+        <Box m="1.5rem 2.5rem">
         <Header title="TRANSACTIONS" subtitle="List of all transactions"/>
             <Box
                 mt="40px"
@@ -90,6 +91,7 @@ const Transactions = () =>{
                     rows={(data && data.transactions) || []}
                     columns={columns}
                     rowCount={(data && data.total) || 0}
+                    roPageOptions={[ 20,50,100 ]}
                     pagination
                     page={page}
                     pageSize={pageSize}
@@ -99,9 +101,12 @@ const Transactions = () =>{
                     onPageSizeChange={ (newPageSize) => setPage(newPageSize) }
                     onSortModelChange={ (newSortModel) => setSort(...newSortModel) }
                     components={{ Toolbar: DataGridCustomToolbar }}
+                    componentsProps={{
+                        toolbar:{searchInput,setSearchInput,setSearch}
+                    }}
                 />
             </Box>
-        </>
+        </Box>
     )
 }
 

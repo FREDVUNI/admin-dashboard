@@ -52,9 +52,9 @@ export const getTransactions = async(req,res) =>{
 
         const transactions = await Transaction.find({
             $or:[
-                { cost: {$regex: new RegEx(search,"i")} },
-                { userId: {$regex: new RegEx(search,"i")} }
-            ]
+                { cost: {$regex: new RegExp(search,"i")} },
+                { userId: {$regex: new RegExp(search,"i")} }
+            ],
         })
         .sort(sortFormatted)
         .skip(page * pageSize)
