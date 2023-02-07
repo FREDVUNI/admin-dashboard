@@ -14,12 +14,13 @@ const Overview = () =>{
                     <Select
                        value={view}
                        label="view"
-                       onChange={ (e) => e.target.value }
+                       onChange={ (e) => setView(e.target.value) }
                     >
                         <MenuItem value="sales">Sales</MenuItem>
                         <MenuItem value="units">Units</MenuItem>
                     </Select>
                 </FormControl>
+                <OverviewChart view={view}/>
             </Box>
         </Box>
     )
