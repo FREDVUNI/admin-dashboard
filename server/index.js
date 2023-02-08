@@ -14,7 +14,8 @@ import generalRoutes from  './routers/general.js'
 // import User from './models/User.js'
 // import Transaction from './models/Transaction.js'
 // import OverallStat from './models/OverallStat.js'
-// import { dataUser,dataProduct,dataProductStat,dataTransaction,dataOverallStat } from './data/index.js'
+// import AffiliateStat from "./models/AffiliateStat.js";
+// import { dataUser,dataProduct,dataProductStat,dataTransaction,dataOverallStat,dataAffiliateStat } from './data/index.js'
 
 const app = express()
 app.use(morgan('common'))
@@ -43,4 +44,5 @@ app.listen(PORT,()=>{
     // ProductStat.insertMany(dataProductStat)
     // Transaction.insertMany(dataTransaction)
     // OverallStat.insertMany(dataOverallStat)
+    // AffiliateStat.insertMany(dataAffiliateStat)
 })
