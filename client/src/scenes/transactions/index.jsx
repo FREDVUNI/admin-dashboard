@@ -21,7 +21,7 @@ const Transactions = () =>{
         sort: JSON.stringify(sort),
         search,
     })
-    console.log(data)
+    
     const columns = [
         {
             field:"_id",

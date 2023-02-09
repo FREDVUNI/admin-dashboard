@@ -9,8 +9,6 @@ import { useSelector } from 'react-redux'
 const Performance  = () =>{
     const userId = useSelector((state) => state.global.userId)
     const { data,isLoading } = useGetPerformanceQuery(userId);
-
-    console.log(data)
     const theme = useTheme()
 
     const columns = [
