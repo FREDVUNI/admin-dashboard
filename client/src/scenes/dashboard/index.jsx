@@ -120,6 +120,56 @@ const Dashboard = () =>{
                         <Traffic sx={{ color: theme.palette.secondary[300], fontSize: "26px" }} />
                     }
                 />
+                <Box
+                    gridColumn="span 8"
+                    gridRow="span 3"
+                    sx={{
+                        "& .MuiDataGrid-root":{
+                            border:"none"
+                        },
+                        "& .MuiDataGrid-cell":{
+                            borderBottom:"none"
+                        },
+                        "& .MuiDataGrid-columnHeaders":{
+                            backgroundColor:theme.palette.background.alt,
+                            color: theme.palette.secondary[100],
+                            borderBottom: "none"
+                        },
+                        "& .MuiDataGrid-virtualScroller":{
+                            backgroundColor:theme.palette.primary.light
+                        },
+                        "& .MuiDataGrid-footerContainer":{
+                            backgroundColor:theme.palette.background.alt,
+                            color: theme.palette.secondary[100],
+                            borderTop:"none"
+                        },
+                        "& .MuiDataGrid-toolbarContainer .MuiButton-text":{
+                            color: `${theme.palette.secondary[200]} !important`
+                        }
+                       }}
+                >
+                    <DataGrid
+                        loading={isLoading || !data}
+                        getRowId={(row) => row._id}
+                        rows={(data && data.transactions) || []}
+                        columns={columns}
+                    />
+                </Box>
+                <Box
+                    gridColumn='span 4'
+                    gridRow='span 3'
+                    background={theme.palette.background.alt}
+                    p='1.5rem'
+                    borderRadius='0.55rem'
+                >
+                    <Typography variant='h6' sx={{ color: theme.palette.secondary[100] }}>
+                       Sales By Category
+                    </Typography>
+                    <BreakdownChart isDashboard={true}/>
+                    <Typography p='0 0.6rem' fontSize='0.8rem' sx={{ color:theme.palette.secondary[200]}}>
+                        Breakdown real states and and information via category for revenue made this year
+                    </Typography>
+                </Box>
             </Box>
         </Box>
     )
