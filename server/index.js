@@ -29,6 +29,11 @@ app.use(helmet.crossOriginResourcePolicy({policy:"cross-origin"}))
 dotenv.config({path:".env"})
 const PORT = process.env.PORT || 9000
 
+app.use("/",{
+    "API":"Ed Roh Admin Dashboard API in Node JS and Express",
+    "Documentation":"https://admin-backend-pq9g.onrender.com/management/performance/63701cc1f03239b7f700000e"
+})
+
 app.use("/client",clientRoutes)
 app.use("/general",generalRoutes)
 app.use("/management",managementRoutes)
