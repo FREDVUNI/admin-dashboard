@@ -34,6 +34,7 @@ app.get("/",(req,res)=>{
     .json({
         status:200, 
         message:"Ed Roh Admin Dashboard API in Node JS and Express 🤷‍♂️",
+        dashboard:"https://admin-frontend-02yo.onrender.com/",
         api_documentation: "https://admin-backend-pq9g.onrender.com/management/performance/63701cc1f03239b7f700000e"
     })
 })
