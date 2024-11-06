@@ -31,7 +31,7 @@ import {
 } from '@mui/icons-material'
 import { useLocation,useNavigate } from 'react-router-dom'
 import FlexBetween from './FlexBetween'
-import ProfileImage from 'assets/profile.jpeg'
+import ProfileImage from 'assets/images.png'
 
 const navItems =[
     {
@@ -39,7 +39,15 @@ const navItems =[
         icon:<HomeOutlined/>
     },
     {
-        text:"Client Facing",
+        text:"Flight List",
+        icon:<ReceiptLongOutlined/>
+    },
+    {
+        text:"Data Analysis",
+        icon:<PointOfSaleOutlined/>
+    },
+    {
+        text:"Extra",
         icon:null
     },
     {
@@ -50,21 +58,10 @@ const navItems =[
         text:"Customers",
         icon:<Groups2Outlined/>
     },
-    {
-        text:"Transactions",
-        icon:<ReceiptLongOutlined/>
-    },
+    
     {
         text:"Geography",
         icon:<PublicOutlined/>
-    },
-    {
-        text:"Sales",
-        icon:null
-    },
-    {
-        text:"Overview",
-        icon:<PointOfSaleOutlined/>
     },
     {
         text:"Daily",
@@ -77,10 +74,6 @@ const navItems =[
     {
         text:"Breakdown",
         icon:<PieChartOutlined/>
-    },
-    {
-        text:"Management",
-        icon:null
     },
     {
         text:"Admin",
@@ -133,7 +126,7 @@ const Sidebar = ({
                     <FlexBetween color={theme.palette.secondary.main}>
                         <Box display="flex" alignItems="center" gap="0.5rem">
                             <Typography variant="h4" fontWeight="bold">
-                                ECOMVISION
+                                CathAI
                             </Typography>
                         </Box>
                         {!isNonMobile && (
@@ -154,7 +147,7 @@ const Sidebar = ({
                                     </Typography>
                                 )
                             }
-                            const lcText= text.toLowerCase()
+                            const lcText = text === "Flight List" ? "transactions" : text === "Data Analysis" ? "overview" : text.toLowerCase();
 
                             return (
                                 <ListItem key={text} disablePadding>
@@ -204,10 +197,10 @@ const Sidebar = ({
                         sx={{ objectFit:"cover" }}
                     />
                     <Box textAlign="left">
-                        <Typography fontWeight="bold" fontSize="0.9rem" sx={{ color: theme.palette.secondary[100] }}>{user.name}</Typography>
-                        <Typography fontWeight="bold" fontSize="0.8rem" sx={{ color: theme.palette.secondary[200] }}>{user.occupation}</Typography>
+                        <Typography fontWeight="bold" fontSize="0.9rem" sx={{ color: theme.palette.secondary[100] }}> Mr Chan </Typography>
+                        <Typography fontWeight="bold" fontSize="0.8rem" sx={{ color: theme.palette.secondary[200] }}> VP of Analytics </Typography>
                     </Box>
-                    <SettingsOutlined sx={{ color: theme.palette.secondary[300], fontSize:"25px" }}/>
+                    <SettingsOutlined sx={{ color: theme.palette.secondary[300], fontSize:"25px" }}/> 
                 </FlexBetween>
             </Box>            
         </Drawer>

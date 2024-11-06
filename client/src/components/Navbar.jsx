@@ -3,7 +3,7 @@ import { LightModeOutlined,DarkModeOutlined,Menu as MenuIcon,Search,SettingsOutl
 import FlexBetween from 'components/FlexBetween'
 import { useDispatch } from 'react-redux'
 import { setMode } from 'state'
-import ProfileImage from 'assets/profile.jpeg'
+import ProfileImage from 'assets/images.png'
 import { AppBar,Toolbar,useTheme,InputBase,IconButton,Button,Box,Typography,Menu,MenuItem } from '@mui/material'
 
 const Navbar = ({
